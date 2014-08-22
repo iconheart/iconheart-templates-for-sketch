@@ -1,0 +1,31 @@
+#! /usr/bin/python
+
+
+from os.path import expanduser, join, exists
+from shutil import rmtree
+from subprocess import call
+
+
+home = expanduser("~")
+
+if not home:
+    print("Could not detect current user's home folder, cancel installation.")
+    exit(-1)
+
+PACKAGE = "Icon Heart Templates"
+REPO = "https://github.com/iconheart/iconheart-templates-for-sketch.git"
+TEMPLATES_DIR = "Library/Application Support/com.bohemiancoding.sketch3/Templates"
+
+destination = join(home, TEMPLATES_DIR, PACKAGE)
+
+if not destination:
+    print("Could not detect destination folder, cancel installation.")
+    exit(-1)
+
+print("Installing %s..." % PACKAGE)
+
+if exists(destination):
+    print("Removing existing copy of %s" % PACKAGE)
+    rmtree(destination)
+
+call(["git", "clone", REPO, destination])
