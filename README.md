@@ -18,7 +18,7 @@ Installation is simple and requires two steps.
 
 First you have to clone (or download) templates. Copy and paste this command into the terminal, then press `Enter`
 
-`\curl -sSL [](get) | python`
+`\curl -sSL https://github.com/iconheart/iconheart-templates-for-sketch/blob/branch/get | python`
 
 This command clones entire repository to `~/Library/Application Support/com.bohemiancoding.sketch3/Templates`. 
 
